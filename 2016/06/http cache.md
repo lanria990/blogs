@@ -1,5 +1,7 @@
 ## HTTP 提高性能阅读笔记
 
+[原文链接:HTTP 缓存头提高应用性能](https://github.com/lindazhang102/Personal-Blog/blob/master/http%20cache.md)
+
 
 #### 两个基本缓存 Cache-Control、Expires.
 
@@ -44,3 +46,6 @@ ETag 允许服务器去识别该资源的缓存内容和该资源最新版本是
 ETag: “15f0fff99ed5aae4edffdd6496d7131f"
 
 If-None-Match 如果当前版本有相同的 ETag 值，这表明它（译者注：也就是服务器里的当前资源版本）的值和浏览器缓存副本的值相同，然后返回 304 的 HTTP 状态
+
+
+
