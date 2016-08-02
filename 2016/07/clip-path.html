@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>clip-path</title>
+	<link href="http://fonts.googleapis.com/css?family=Vollkorn:700italic" rel="stylesheet" type="text/css">
+	<style type="text/css">
+	img {
+		float: left;
+		background: #ccc;
+		margin: 15px;
+		width: 200px;
+		height: 200px;
+	}
+	.triangle {
+  		-webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+		clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+	}
+	.trapezoid{
+		-webkit-clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+		clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+	}
+	.parallelogram{
+		-webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+		clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+	}
+	.rhombus{
+		-webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+		clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+	}
+	.pentagon{
+		-webkit-clip-path:polygon(50% 0%,100% 38%,82% 100%,18% 100%,0% 38%);
+		clip-path:polygon(50% 0%,100% 38%,82% 100%,18% 100%,0% 38%);
+	}
+	.hexagon{
+		-webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+	}
+	.heptagon{
+		-webkit-clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+		clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+	}
+
+	.element {
+    width: 40%;
+    height: 600px;
+    float: left;
+    background-image: url(http://tympanus.net/codrops-playground/assets/images/cssref/properties/clip-path/cupcakes.jpg);
+    background-size: cover;
+    background-position: -100px 0;
+    background-repeat: no-repeat;
+    -webkit-clip-path: ellipse(90% 70% at 0% 50%);
+    clip-path: ellipse(90% 70% at 0% 50%);
+    -webkit-shape-outside: ellipse(90% 70% at 0% 50%);
+     shape-outside: ellipse(90% 70% at 0% 50%); 
+    -webkit-shape-margin: 2em;
+    shape-margin: 2em;
+}
+.clip-img {
+  -webkit-clip-path: url(#svgTextPath);  
+  clip-path: url(#svgTextPath);
+}
+</style>
+</head>
+<body>
+	<div>
+		<p>
+			<prev class="javascript">clip-path: <clip-source> | [ <basic-shape> || <geometry-box> ] | none</prev>
+		</p>
+		<ul>
+			<li><a href="http://www.w3cplus.com/css3/introducing-css-clip-path-property.html">文章地址</a></li>
+			<li><a href="http://www.w3cplus.com/css3/css-svg-clipping.html">CSS和SVG中的剪切——clip-path属性和 clipPath 元素</a></li>
+		</ul>
+	</div>
+	<img src="http://cdn1.w3cplus.com/cdn/farfuture/flon0963MqykV4emRGefnGBXw-XpuYPf51MED83iqp4/mtime:1399877750/sites/default/files/blogs/2014/1405/shape-10.jpg" class="triangle" />
+	<img src="http://cdn1.w3cplus.com/cdn/farfuture/flon0963MqykV4emRGefnGBXw-XpuYPf51MED83iqp4/mtime:1399877750/sites/default/files/blogs/2014/1405/shape-10.jpg" class="trapezoid" />
+	<img src="http://cdn1.w3cplus.com/cdn/farfuture/flon0963MqykV4emRGefnGBXw-XpuYPf51MED83iqp4/mtime:1399877750/sites/default/files/blogs/2014/1405/shape-10.jpg" class="parallelogram" />
+	<img src="http://cdn1.w3cplus.com/cdn/farfuture/flon0963MqykV4emRGefnGBXw-XpuYPf51MED83iqp4/mtime:1399877750/sites/default/files/blogs/2014/1405/shape-10.jpg" class="rhombus" />
+	<img src="http://cdn1.w3cplus.com/cdn/farfuture/flon0963MqykV4emRGefnGBXw-XpuYPf51MED83iqp4/mtime:1399877750/sites/default/files/blogs/2014/1405/shape-10.jpg" class="pentagon" />
+	<img src="http://cdn1.w3cplus.com/cdn/farfuture/flon0963MqykV4emRGefnGBXw-XpuYPf51MED83iqp4/mtime:1399877750/sites/default/files/blogs/2014/1405/shape-10.jpg" class="hexagon" />
+	<img src="http://cdn1.w3cplus.com/cdn/farfuture/flon0963MqykV4emRGefnGBXw-XpuYPf51MED83iqp4/mtime:1399877750/sites/default/files/blogs/2014/1405/shape-10.jpg" class="heptagon" />
+
+
+<iframe class="speakerdeck-iframe" frameborder="0" src="http://bennettfeely.com/clippy/" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="border: 0px; margin: 0px; padding: 0px; border-radius: 5px; width: 100%; height: 542px; background: transparent;" width="100%"></iframe>
+
+
+<div class="container">
+  <div class="element">
+  </div>
+  <h1>Cupcakes Recipe</h1>
+  <p>
+    Cupcake ipsum dolor sit. Amet sweet roll sweet roll cheesecake sweet roll apple pie ice cream. Toffee soufflé danish soufflé I love I love dessert I love. Lollipop carrot cake marshmallow I love caramels. Chocolate cotton candy unerdwear.com dessert gingerbread gummies I love. Bonbon chupa chups biscuit danish apple pie. Bonbon muffin dessert wafer chocolate cake sesame snaps candy canes marzipan.
+  </p>
+  <h3>Ingredients</h3>
+  <ul>
+    <li>1/2 Lorem Ipsum</li>
+    <li>5g Sugar Ipsum</li>
+    <li>2 eggs</li>
+  </ul>
+  <p>
+    Dessert oat cake candy lollipop topping cotton candy jelly beans I love cake. Brownie sugar plum cotton candy wafer dragée pudding I love. I love I love chocolate. Topping danish carrot cake soufflé liquorice icing gummi bears liquorice dessert. Jujubes oat cake tootsie roll tart. 
+  </p>
+  <p>
+    Cookie lollipop cookie gingerbread danish muffin sweet chupa chups. Gingerbread donut muffin biscuit sesame snaps chocolate cake sweet. Sugar plum lemon drops pastry tiramisu chocolate gingerbread. I love pudding biscuit soufflé wafer biscuit.
+  </p>
+  <p>shape-outside</p>
+  <div class="clear"></div>
+</div>
+
+<img src="http://www.w3cplus.com/sites/default/files/blogs/2014/1407/flowers.jpg" alt="" class="clip-img" />
+<svg height="0" width="0">
+    <defs>
+        <clipPath id="svgTextPath">
+            <text x="0" y="300" textLength="800px" lengthAdjust="spacing" font-family="Vollkorn" font-size="230px" font-weight="700" font-style="italic"> Blossom </text>
+        </clipPath>
+    </defs>
+</svg>
+
+</body>
+</html>
