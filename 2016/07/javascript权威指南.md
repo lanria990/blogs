@@ -42,8 +42,11 @@ iframe sandbox
 
 "" 自动禁用脚本 
 allow-scripts 允许使用脚本，
+
 allow-same-origin 允许 iframe 内容被视为与包含文档有相同的来源
-allow-top-navigation	允许 iframe 内容从包含文档导航（加载）内容。
+
+allow-top-navigation	允许 iframe 内容从包含文档导航（加载）内容
+
 allow-forms	允许表单提交
 
 
