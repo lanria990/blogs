@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>八个CSS函数的小技巧</title>
+	<style type="text/css">
+		[class*=hint-]{
+		position: relative;
+		display: inline-block;
+	}
+	 [class*=hint-]:after{
+		content: attr(data-tooltip);
+		transform: translateX(-50%);
+		background: #383838;
+		color: #fff;
+		padding: 8px 10px;
+		font-size: 12px;
+		white-space: nowrap;
+		text-shadow: 0 -1px 0 #000;
+		box-shadow: 4px 4px 8px rgba(0,0,0,.3);
+		 border-radius: 4px;
+
+		 position: absolute;
+
+	}
+	[class*=hint-]:before{
+
+			/*三角形*/
+			content: '';
+			position: absolute;
+			background: 0 0;
+			border: 6px solid transparent;
+			/**/
+			/*border-top-color: #383838;*/
+
+		}
+
+	[class*=hint-]:after,[class*=hint-]:before{
+		-webkit-transition: .3s ease;
+		-moz-transition: .3s ease;
+		transition: .3s ease;
+		visibility: hidden;
+		opacity: 0;
+	}
+
+	[class*=hint-]:hover:after, [class*=hint-]:hover:before{
+		visibility: visible;
+		opacity: 1;
+		-webkit-transition-delay: 100ms;
+		-moz-transition-delay: 100ms;
+		transition-delay: 100ms;
+	}
+
+
+	.hint-bottom:after{
+		left: 50%;
+		top: 100%;
+	}
+
+	.hint-bottom:before{
+		margin-top: -11px;
+		left: calc(50% - 6px);
+		top: 100%;
+		border-bottom-color: #383838;
+	}
+	.hint-bottom:hover:after{
+		-webkit-transform: translateX(-50%) translateY(8px);
+		-moz-transform: translateX(-50%) translateY(8px);
+		transform: translateX(-50%) translateY(8px)
+	}
+	.hint-bottom:hover:before{
+		-webkit-transform: translateY(8px);
+		-moz-transform: translateY(8px);
+		transform:  translateY(8px);
+	}
+
+
+	.hint-top:after,.hint-top:before{
+		bottom: 100%;
+		left: 50%;
+	}
+	.hint-top:before{
+		margin-bottom: -11px;
+		border-top-color: #383838;
+		left: calc(50% - 6px);
+		bottom: 100%;
+	}
+
+	.hint-top:hover:after{
+		-webkit-transform: translateX(-50%) translateY(-8px);
+		-moz-transform: translateX(-50%) translateY(-8px);
+		transform: translateX(-50%) translateY(-8px)
+	}
+	.hint-top:hover:before{
+		-webkit-transform: translateY(-8px);
+		-moz-transform: translateY(-8px);
+		transform:  translateY(-8px);
+	}
+		/*图片*/
+		.thumbnail{
+			display: inline-block;
+			position: relative;
+			margin: 0 auto;
+			overflow: hidden;
+			background: #000;
+			box-shadow: 0 15px 50px rgba(0,0,0,.5);
+		}
+
+		.thumbnail img{
+			display: block;
+			max-width: 100%;
+			transition: opacity .2s ease-in-out;
+		}
+
+		.thumbnail:hover img{
+			opacity: 0.5;
+		}
+
+		.thumbnail:before,.thumbnail:after{
+			position: absolute;
+			z-index: 1;
+			width: 100%;
+			height:50%;
+			transition: transform .4s ease-out;
+			color:#fff;
+			box-sizing: border-box;
+		}
+		.thumbnail:after {
+			content: attr(data-title);
+			top:0;
+			padding-top: 55px;
+			transform: translateY(-100%) scale(.7);
+			background: rgba(0,0,0,.4);
+			font-size: 3.5rem;
+			font-weight: 300;
+			font-family: Merriweather, serif;
+			text-align: center;
+		}
+		.thumbnail:before{
+			content: attr(data-description);
+			top:50%;
+			padding: 20px;
+			transform: translateY(100%) scale(.7);
+			background: rgba(107,38,68,.6);
+			-webkit-backdrop-filter: blur(10px);
+			backdrop-filter: blur(10px);
+			color: #f1f1f1;
+			font-size: 1.5rem;
+		}
+		.thumbnail:hover::after,
+		.thumbnail:hover::before {
+			transform: translateY(0%) scale(1);
+		}
+
+		/*.containt-counter {*/
+			/*counter-reset: section 0;*/
+		/*}*/
+		.containt-counter div.section{
+			counter-increment: section;
+		}
+		div.section:before{
+			content:counter(section)'.'
+		}
+		.characters{
+			counter-reset:characters 0;
+		}
+		.characters input{
+			visibility: hidden;
+		}
+		.characters label{
+			margin: 8px;
+			padding: 16px;
+			border-radius: 4px;
+			border: solid 2px rgba(3, 3, 3, .4);
+			background-color: rgba(3, 3, 3, .2);
+			cursor: pointer;
+			transition: all .1s;
+			display: inline-block;
+		}
+		.characters input:checked{
+			counter-increment: characters;
+		}
+		.characters input:checked +label{
+			border: solid 2px #333;
+			background-color: rgba(3, 3, 3, .4);
+			box-shadow: 0 0 10px #333;
+		}
+		.characters .total:after{
+			content: counter(characters);
+		}
+	</style>
+</head>
+<body>
+
+<h1>css tooltip</h1>
+
+<div class="hint-bottom  hint-rounded" data-tooltip="We have rounded corners for you">You can also make tooltips bottom...</div>
+<div class="hint-top  hint-rounded" data-tooltip="We have rounded corners for you">You can also make tooltips top...</div>
+
+<h1>css attr function</h1>
+<a class="thumbnail" href="#" id="thumbnail" data-title="Bacon" data-description="Bacon ipsum dolor amet filet mignon alcatra short ribs, sausage shoulder tail biltong rump chicken ground round ham hock porchetta tri-tip. Boudin bresaola andouille, leberkas pork ball tip turducken beef ribs">
+	<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/meat.jpg" alt="Illustration"/>
+</a>
+
+<h1><a href="http://www.w3cplus.com/css3/css-counters.html" target="_blank">CSS Counters</a></h1>
+<div class="containt-counter">
+	<div class="section">section1</div>
+	<div class="section">section2</div>
+	<div class="section">section3</div>
+	<div class="section">section4</div>
+	<div class="section">section5</div>
+</div>
+
+<div class="characters">
+	<input type="checkbox" id="counter-1"><label for="counter-1">Relm</label>
+	<input type="checkbox" id="counter-2"><label for="counter-2">Mog</label>
+	<section class="total">
+		Total selected:
+	</section>
+</div>
+
+<h1>4.CSS滤镜实现的磨砂效果</h1>
+
+<h1>5.HTML元素作为背景[firefox]</h1>
+<div  style=" background:-moz-element(#thumbnail) no-repeat;height: 200px;opacity: 0.5;">
+
+</div>
+<style>
+	#testTube{
+		height:100px;
+		width:200px;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: block;
+	}
+	#testTube .calc-head{
+		width: 100%;
+		height: 20px;
+		background-color: #2f9bc9;
+	}
+	#testTube .calc-content{
+		width: 100%;
+		height:60px;
+		height: calc(100% - 40px);
+		height: -moz-calc(100% - 40px);
+		height: -webkit-calc(100% - 40px);
+		background-color: #136182;
+		width: calc(100% - 20px * 2 - 8px * 2);
+		width: -moz-calc(100% - 20px * 2 - 8px * 2);
+		width: -webkit-calc(100% - 20px * 2 - 8px * 2);
+		width: -webkit-calc(100% - 20px * 2 - 8px * 2);
+		padding: 0 20px;
+		margin: 0 8px;
+	}
+	#testTube .calc-footer{
+		width: 100%;
+		height: 20px;
+		background-color: #033a52;
+	}
+</style>
+
+<h1>6.calc()创建更好的网格</h1>
+<ul id="testTube">
+	<li class="calc-head"></li>
+	<li class="calc-content"></li>
+	<li class="calc-footer"></li>
+</ul>
+
+
+<style>
+	#content{
+		padding-right: 240px;
+		max-width: 800px;
+	}
+	/* CSS calc() magic starts… */
+	.fixed {
+		position: fixed;
+		right: calc(50% - 400px + 40px);
+		background: transparent;
+		border: 0;
+		box-shadow: none;
+		bottom: 40px;
+	}
+	.fixed img {
+		box-shadow: 0 5px 10px rgba(0,0,0,.5);
+		border-radius: 6px;
+	}
+	#main{
+
+	}
+</style>
+<h1>7.calc()+fixed</h1>
+
+<main id="main">
+	<section id="content">
+		A use case for the calc() function is aligning elements with a fixed position. For example, if you have a content wrapper with fluid spacing to the left and right, and you want to precisely align a fixed
+	</section>
+	<aside class="fixed tomatoes">
+		<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/meat.jpg" width="120"/>
+	</aside>
+</main>
+
+<style>
+	.animate{
+		width: 200px;
+		height: 200px;
+		background: #000;
+		-webkit-transition:  all 2s cubic-bezier(.17, .86, .73, .14);
+		-o-transition:  all 2s cubic-bezier(.17, .86, .73, .14);
+		transition:  all 2s cubic-bezier(.17, .86, .73, .14);
+	}
+	.animate:hover{
+		background: #cabfbf;
+	}
+</style>
+<h1>8.使用cubic-bezier()实现动画</h1>
+<div class="animate">
+
+</div>
+
+</body>
+</html>
