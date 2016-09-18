@@ -38,10 +38,10 @@ http head Content-Security-Policy [详细](https://content-security-policy.com/)
 - `object-src`:'self'  object>, <embed> or <applet>
 - `media-src`:media.example.com HTML5 <audio>, <video>
 - `sandbox`:allow-forms/allow-scripts/allow-top-navigation/allow-same-origin, iframe[sandbox]
-- `report-uri`:/some-report-uri  使用POST方法报告当前注入行为给哪个网址，Content-Security-Policy-Report-Only 需要配合使用
-- `child-src`:'self' <frame>、<iframe>
-- `form-action`:'self'/...  <form> action
-- `frame-ancestors`:'none'  'none' == X-Frame-Options: DENY .  <frame> <iframe> <object> <embed> <applet>
+- `report-uri`:'/some-report-uri'  使用POST方法报告当前注入行为给哪个网址，Content-Security-Policy-Report-Only 需要配合使用
+- `child-src`:'self'  `<frame> <iframe>`
+- `form-action`:'self'   `<form>` action
+- `frame-ancestors`:'none'  'none' == X-Frame-Options: DENY . `<frame> <iframe> <object> <embed> <applet>`
 - `plugin-types`:'application/pdf' <object>、<embed>. To load an <applet> you must specify application/x-java-applet.
 
 
