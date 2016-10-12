@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>dialog</title>
+    <meta name="theme-color" content="#3c790a">
+</head>
+<body>
+<dialog id="favDialog">
+    <form method="dialog">
+        <section>
+            <p>
+                <label for="favAnimal">Favorite animal:</label>
+                <select id="favAnimal">
+                    <option></option>
+                    <option>Brine shrimp</option>
+                    <option>Red panda</option>
+                    <option>Spider monkey</option>
+                </select>
+            </p>
+        </section>
+        <menu>
+            <button id="cancel" type="reset">Cancel</button>
+            <button type="submit">Confirm</button>
+        </menu>
+    </form>
+</dialog>
+
+<menu>
+    <button id="updateDetails">Update details chrome</button>
+</menu>
+
+<div>
+    <h2>picture media</h2>
+    <picture >
+        <source srcset="https://developer.cdn.mozilla.net/static/img/beast-404_LE.f1435cace4b4.png" media="(min-width: 600px)">
+        <img src="https://developer.cdn.mozilla.net/static/img/beast-404_RE.2e53f96c5abb.png" alt="MDN">
+    </picture>
+
+    <h2>picture type</h2>
+    <picture >
+        <source srcset="https://developer.cdn.mozilla.net/static/img/logo_sprite.7d36c4a1422b.svg" type="image/svg+xml">
+        <img src="https://developer.cdn.mozilla.net/static/img/beast-404_LE.f1435cace4b4.png" alt="MDN">
+    </picture>
+</div>
+
+<div>
+    <h2></h2>
+</div>
+
+<section>
+    <style>
+        div.popup-menu {
+            width: 300px;
+            height: 80px;
+            background-color: lightgreen;
+        }
+    </style>
+    <div contextmenu="popup-menu" class="popup-menu">
+        Right-click to see the adjusted context menu,firefox
+    </div>
+    <menu  type="context" id="popup-menu">
+        <menuitem>1</menuitem>
+        <menuitem>2</menuitem>
+        <hr>
+        <menuitem>Separated action</menuitem>
+    </menu>
+</section>
+<script>
+    (function() {
+        var updateButton = document.getElementById('updateDetails');
+        var cancelButton = document.getElementById('cancel');
+        var favDialog = document.getElementById('favDialog');
+
+        // Update button opens a modal dialog
+        updateButton.addEventListener('click', function() {
+            favDialog.showModal();
+        });
+
+        // Form cancel button closes the dialog box
+        cancelButton.addEventListener('click', function() {
+            favDialog.close();
+        });
+
+    })();
+</script>
+</body>
+</html>

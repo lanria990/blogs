@@ -56,3 +56,30 @@ cubic-bezier(.96,.99,.28,-1.83)
 
 参考
 [贝塞尔曲线的一些事情](http://www.w3cplus.com/animation/mathematical-intuition-behind-bezier-curves.html)
+
+
+
+#### css单位vMin和vMax
+
+- vmin=Math.min(viewport宽,viewport高) *1%;
+- vmax=Math.max(viewport宽,viewport高) *1%;
+- IE9使用vm代替vmin，且不支持vmax。IE10+支持标准单位。
+- [safari bug](https://github.com/rodneyrehm/viewport-units-buggyfill)
+
+
+####  em缩放的一些使用案例
+
+[原文](http://www.zcfy.cc/article/building-resizeable-components-with-relative-css-units-1276.html)
+
+- 等比例的按钮
+- 图片宽／高的成比例缩放
+- 成比例变化的边界(box-shadow)
+- 给图标留出位置
+- 在图片中添加说明文字
+- 装饰性背景
+- 带icon的搜索框
+- 只在需要的时候限制行宽（设置max-width）
+- 在列表／警告／模态中定位小图标
+- 渐变...
+
+

@@ -13,7 +13,7 @@
     - Firefox rel="noopener noreferrer"
     - safari [js解决](https://github.com/danielstjules/blankshield/blob/master/blankshield.js)
 
-#### Content Security Policy
+#### xss http 防御
 
 [Content Security Policy 入门教程](http://www.ruanyifeng.com/blog/2016/09/csp.html)
 

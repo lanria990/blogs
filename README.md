@@ -17,3 +17,4 @@
 - [weex 学习遇到的问题](./qa/weex.md)
 - [日常使用软件工具整理](./other/tool.md)
 - [零碎知识点小记](./other/tips.md)
+- [javascript待整理小记](./other/javascript-tips.md)
