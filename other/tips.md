@@ -60,3 +60,28 @@ http head Content-Security-Policy [详细](https://content-security-policy.com/)
 |'unsafe-eval'	|script-src 'unsafe-eval'	|Allows unsafe dynamic code evaluation such as JavaScript eval()|
 
 eg. `default-src 'none'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self';`
+
+
+#### [CSP](https://zhuanlan.zhihu.com/p/23011855)
+
+CSP的基本假设之一就是在策略白名单中的域名只会提供安全的内容，因此从理论上来说攻击者不应该能够将有效的JavaScript注入到白名单里来源的响应中
+
+#### 危险行为
+
+1、JSONP中带有用户可控的回调
+2、在全局window上执行数据
+3、作为安全手段的路径限制
+4、白名单数量越大，越难保证JSONP和AngularJS造成的安全问题
+
+
+
+
+##### 关于在后期维护过程中 css 和 Js 耦合问题
+
+1、对于js web交互的时候统一命名方法，使用active,selected,disabled,checked,on,off,in,out等命名作为状态类名的web交互开发。
+2、JS和CSS分开，可以更好的实现CSS的压缩
+
+
+参考
+[基于active,checked等状态类名的web前端交互开发](http://www.zhangxinxu.com/wordpress/2016/10/classname-active-checked-web-ux-develop/)
+[精简高效的CSS命名准则/方法](http://www.zhangxinxu.com/wordpress/2010/09/%E7%B2%BE%E7%AE%80%E9%AB%98%E6%95%88%E7%9A%84css%E5%91%BD%E5%90%8D%E5%87%86%E5%88%99%E6%96%B9%E6%B3%95/)

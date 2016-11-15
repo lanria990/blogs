@@ -87,3 +87,28 @@ textContent
 - innerText 会受样式影响，不返回隐藏元素文本，textContent会返回
 - innerText 会触发CSS relow
 - IE11 innerText 会移除所有子节点并销毁文本节点
+
+
+#### Document.designMode 与 contenteditable
+
+`document.designMode = "on"/"off";`:全文档document可编辑/不可编辑，，增加div在body里面
+`contenteditable`: true/false;元素可编辑，
+
+document.designMode = 'on' 回车事件，div生效
+不同的浏览器表现形式不一致。
+chrome  在html中增加相同div元素
+Firefox 在元素中增加<br>
+IE 未测
+
+
+`contenteditable`: true 回车事件
+
+不同的浏览器表现形式不一致。
+chrome  在元素中增加相同div元素
+Firefox 在元素中增加<br>
+IE 未测
+
+#### 设置批量样式
+`element.style.cssText`,`element.setAttribute('style','')`;
+
+

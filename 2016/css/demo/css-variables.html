@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Css 变量demo</title>
+    <style>
+        :root {
+            --color: white;
+            --background: skyblue;
+            --is-red:0;
+        }
+        body{
+            background: var(--background);
+            color:var(--color);
+        }
+        div{
+            --color:orange;
+        }
+        h2 {
+            color: var(--color);
+            background:var(--background-h2,white) ;
+        }
+        .block {
+            background: rgba(
+                    calc(
+                            255*var(--is-red) +
+                            0*(1 - var(--is-red))
+                    ),
+                    calc(
+                            0*var(--is-red) +
+                            255*(1 - var(--is-red))
+                    ),
+                    0, 1);
+        }
+
+        .js-controls{
+            --base:#a5cddc;
+            --spacing:10px;
+            --blur:2px;
+        }
+        img{
+            padding: var(--spacing);
+            background: var(--base);
+            -webkit-filter: blur(var(--blur));
+            filter:blur(var(--blur));
+        }
+        h3{
+            color: var(--base);
+        }
+        input {
+            width:100px;
+        }
+    </style>
+
+
+</head>
+<body>
+    <section>
+        <h1>This is a variables demo</h1>
+        <div>
+            <h2>变量层级关系：父级重新定义变量，层级更高</h2>
+        </div>
+        <div class="block">
+            block calc calculate
+        </div>
+    </section>
+    <section class="js-controls">
+
+        <h3>Update Css Variables with JS</h3>
+        <div class="controls">
+            <label for="spacing">Spacing</label>
+            <input type="range" id="spacing" min="10" max="200" value="10"/>
+            <label for="blur">Blur</label>
+            <input type="range" id="blur" min="0" max="25" value="2"/>
+
+            <label for="blur">Base Color</label>
+            <input type="color" id="base" value="#a5cddc"/>
+            <img src="https://ss2.bdstatic.com/kfoZeXSm1A5BphGlnYG/skin/65.jpg" width="899">
+
+        </div>
+    </section>
+    <script>
+        const inputs = [].slice.call(document.querySelectorAll('.controls input'));
+
+        // listen for changes
+        inputs.forEach(input => input.addEventListener('change', handleUpdate));
+        inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+
+        function handleUpdate(e) {
+            // append 'px' to the end of spacing and blur variables
+            let suffix = (this.id === 'base' ? '' : 'px');
+            document.getElementsByClassName('js-controls').item(0).style.setProperty(`--${this.id}`, this.value + suffix);
+        }
+    </script>
+</body>
+</html>
