@@ -6,9 +6,9 @@
 
 #### 目录
 
-- [Web动画](./08/web-animate.md)
-- [版本号](./08/version-number.md)
-- [RESTful API](./09/RESTful API.md)
+- [Web动画](./2016/08/web-animate.md)
+- [版本号](./2016/08/version-number.md)
+- [RESTful API](./2016/09/RESTful API.md)
 
 
 
