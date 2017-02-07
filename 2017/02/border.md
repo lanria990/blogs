@@ -164,7 +164,7 @@ filter: drop-shadow( 20px 0 #d0d0d5); }
 
 eg. 有限的标签的标题栏，待补充
 
-eg. border与等高布局，不支持等高布局
+eg. border与等高布局，不支持百分比布局
 
 ```css
 /**/
