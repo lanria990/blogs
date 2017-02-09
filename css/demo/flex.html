@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>flex </title>
+    <style media="screen">
+        body{margin: 0;}
+        section{display: flex;
+            height:200px;}
+        .right-side,.left-side{width: 200px; background: red; display: flex;}
+        .content{flex-grow:  1;background: green; display: flex;}
+        .flex-05{
+            flex-grow: .5;
+            background: plum;
+        }
+        .flex-1{
+            flex-grow: 1;
+            background: hotpink;
+        }
+        .flex-03{
+            flex-grow: .3;
+            background: darkgreen;
+        }
+        .flex-shrink-01{
+            flex-shrink:0.1 ;
+        }
+        .flex-shrink-02{
+            flex-shrink:0.2 ;
+        }
+        .flex-shrink-03{
+            flex-shrink:0.3 ;
+        }
+        .flex-shrink-05{
+            flex-shrink:0.5 ;
+        }
+        .flex-shrink-04{
+            flex-shrink:0.4 ;
+        }
+        .width600{
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+<h1>flex-grow和flex-shrink 计算方式</h1>
+文章：<a href="https://zhuanlan.zhihu.com/p/24372279">详解 flex-grow 与 flex-shrink</a>
+<h3>flex-grow flex_grow_sum<1</h3>
+<section>
+    <div class="left-side">
+        <div class="flex-05" ></div>
+        <div class="flex-03"></div>
+    </div>
+    <div class="content">
+        <div class="flex-05"></div>
+        <div class="flex-1"></div>
+    </div>
+    <div class="right-side">
+        <div class="flex-05"></div>
+        <div class="flex-03"></div>
+        <div class="flex-shrink-02"></div>
+    </div>
+</section>
+<div>
+    <p>flex-grow 计算公式 width=Math.min( children_width+(parent_width-设置children_width_sum) * flex_grow/Math.max(flex-grow-sum,1))</p>
+</div>
+<h3>flex-grow flex_grow_sum>1</h3>
+<section>
+    <div class="left-side">
+        <div class="flex-05" style="width: 100px; word-break: break-all;">设置 100px,
+            <p>width =  Math.min(100+(200-100) * 0.5/Math.max(0.8,1),200)</p></div>
+        <div class="flex-03"></div>
+    </div>
+    <div class="content">
+        <div class="flex-05"></div>
+        <div class="flex-1"> </div>
+    </div>
+    <div class="right-side">
+        <div class="flex-05"></div>
+        <div class="flex-03"></div>
+        <div class="flex-shrink-02"></div>
+    </div>
+</section>
+
+<h3>flex-shrink flex_shrink_sum==1</h3>
+<section>
+    <div class="width600 flex-shrink-01" style="background: plum;"></div>
+    <div class="width600 flex-shrink-02" style="background: palegoldenrod;"></div>
+    <div class="width600 flex-shrink-03" style="background: palegreen;"></div>
+    <div class="width600 flex-shrink-04" style="background: paleturquoise;"></div>
+</section>
+<div>
+    <p>flex-shrink公式: width = Math.min(width- flex_shrink * [(width_sum - parent_width)*flex_shrink_sum/1 ] * width/sum(width*flex_shrink),width)</p>
+    <p>所有子元素的尺寸一定会被调整到适应父元素的尺寸,min_width,max_width</p>
+</div>
+
+<h3>flex-shrink flex_shrink_sum > 1</h3>
+<section>
+    <div class="width600 flex-shrink-01" style="background: plum;">
+        <p>Math.min(600-0.1 * (3000-1903) *(0.1+0.2+0.3+0.5)/1* 600 /(600*0.1+600*0.2+600*0.3+1200*0.5),600) </p>
+    </div>
+    <div class="width600 flex-shrink-02" style="background: palegoldenrod;"></div>
+    <div class="width600 flex-shrink-03" style="background: palegreen;"></div>
+    <div class="width600 flex-shrink-05" style="background: paleturquoise;" width="1200px"></div>
+</section>
+
+<h3>flex-shrink flex_shrink_sum <1</h3>
+
+<section>
+    <div class="width600 flex-shrink-01" style="background: plum;">
+        <p> Math.min(600-0.1 * (2400-1903) *(0.1+0.2+0.3)/1* 600 /(600*0.1+600*0.2+600*0.3+600*0.5),600)</p>
+    </div>
+    <div class="width600 flex-shrink-02" style="background: palegoldenrod;"></div>
+    <div class="width600 flex-shrink-03" style="background: palegreen; width: 1200px"></div>
+</section>
+</body>
+</html>

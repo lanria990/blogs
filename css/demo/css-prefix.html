@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>css 前缀</title>
+    <style>
+        *{
+            --clip-path:initial;
+            -webkit-clip-path:var( --clip-path);
+            clip-path:var( --clip-path);
+        }
+        header {
+            --clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 2.5em), 0% 100%);
+            background: skyblue;
+            color: white;
+            padding-left: 5pc;
+            /*text-align: center;*/
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>This is demo</h1>
+</header>
+<section>
+    Edge 目前还不支持
+</section>
+
+</body>
+</html>
