@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>z-index 特效 </title>
+    <style>
+        /*<!--震动效果-->*/
+        html {
+            overflow-x: hidden;
+            width: 100%;
+            animation: shake 0.3s;
+        }
+
+        body {
+            background: #333;
+            color: #fff;
+
+        }
+
+        .box {
+            position: relative;
+            cursor: pointer;
+            width: 330px;
+            height: 230px;
+            transform-style: preserve-3d;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateX(35%) translateY(50px) rotateX(45deg) rotateZ(45deg);
+        }
+
+        .box:hover {
+            box-shadow: 0 0 50px #fff;
+        }
+
+        .box div, .box img {
+            position: absolute;
+            width: 330px;
+            height: 230px;
+            left: 0;
+            top: 0;
+            transition: 0.3s;
+        }
+
+        .box img {
+            z-index: 4;
+        }
+
+        .box div:nth-of-type(1) {
+            background: #ac5cf5;
+            opacity: 0.5;
+            z-index: 3;
+        }
+
+        .box div:nth-of-type(2) {
+            background: #5db4eb;
+            opacity: 0.5;
+            z-index: 2;
+        }
+
+        .box div:nth-of-type(3) {
+            background: #5debb4;
+            opacity: 0.5;
+            z-index: 1;
+        }
+
+        .box:hover img {
+            transform: translateZ(100px);
+        }
+
+        .box:hover div:nth-of-type(1) {
+            transform: translateZ(75px);
+        }
+
+        .box:hover div:nth-of-type(2) {
+            transform: translateZ(50px);
+        }
+
+        .box:hover div:nth-of-type(3) {
+            transform: translateZ(25px);
+        }
+
+        /*number 旋转特效*/
+        .number {
+            width: 80px;
+            height: 80px;
+            padding: 8px;
+            transform-origin: center center;
+            transform-style: preserve-3d;
+            transform: perspective(1200px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            animation: 10s move linear infinite;
+            border-radius: 3px;
+            text-align: center;
+            background-color: transparent;
+        }
+
+        .number div {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            line-height: 100px;
+            box-shadow: 0 0 100px #19decd;
+            text-shadow: 0 0 20px #fff;
+            border: 3px solid #19decd;
+            font-size: 60px;
+        }
+
+        .number div:nth-of-type(1) {
+            transform: translateZ(40px);
+        }
+
+        .number div:nth-of-type(2) {
+            transform: translateZ(-47px);
+        }
+
+        .number div:nth-of-type(3) {
+            transform-origin: top;
+            transform: translateZ(40px) rotateX(-90deg);
+        }
+
+        .number div:nth-of-type(4) {
+            transform-origin: bottom;
+            transform: translateZ(40px) rotateX(90deg);
+        }
+
+        .number div:nth-of-type(5) {
+            transform-origin: left;
+            transform: translateZ(40px) rotateY(90deg);
+        }
+
+        .number div:nth-of-type(6) {
+            transform-origin: right;
+            transform: translateZ(40px) rotateY(-90deg);
+        }
+
+        @keyframes move {
+            100% {
+                transform: perspective(500px) rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            }
+        }
+
+        @keyframes shake {
+            0% {
+                margin: 0;
+            }
+            10% {
+                margin: -30px 0 0 -30px;
+            }
+            20% {
+                margin: -30px -30px 0 0;
+            }
+            30% {
+                margin: 0 -30px -30px 0;;
+            }
+            40% {
+                margin: 0 0 -30px -30px;
+            }
+            50% {
+                margin: 0 0 -30px -30px;
+            }
+            60% {
+                margin: -10px 0 0 -10px;
+            }
+            70% {
+                margin: -10px -10px 0 0;
+            }
+            80% {
+                margin: 0 -10px -10px 0;
+            }
+            90% {
+                margin: 0 0 -10px -10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<h5>css3立体</h5>
+<div class="box">
+    <img src="https://www.bing.com/az/hprichbg/rb/JavaSparrow_ZH-CN10576911084_1920x1080.jpg" alt="" width="230">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<h5>css3立方体旋转</h5>
+<div class="number">
+    <div>6</div>
+    <div>6</div>
+    <div>6</div>
+    <div>6</div>
+    <div>6</div>
+    <div>6</div>
+</div>
+
+<h5>图片切换</h5>
+<div class="photos" id="photos">
+    <div class="prev"></div>
+    <div class="photos-content">
+        <img src="" alt="图片1"/>
+        <img src="" alt="图片2" class=""/>
+    </div>
+    <div class="next"></div>
+</div>
+<script>
+    function loadImg(arr,call) {
+        let loads = [];
+        let  loadedNo =0;
+        arr.forEach((img,index)=>{
+            loads[index] = new Image();
+            loads[index].src = img;
+            loads[index].onload = function () {
+                loadedNo++;
+                if (loadedNo == arr.length){
+                    call(loads);
+                }
+            }
+            loads[index].onerror =function () {
+                
+            }
+        })
+    }
+    let photos = document.getElementById('photos');
+    let imgs = photos.querySelectorAll('img');
+
+</script>
+</body>
+</html>

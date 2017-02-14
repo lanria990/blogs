@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3Dimage</title>
+
+    <style>
+        body{
+            background: rgb(238, 222, 205);
+            transition: background-color .8s;
+        }
+        .content {
+            display: flex;
+            width: 1190px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 100px auto;
+            transform-style: preserve-3d;
+            transform: perspective(1200px) rotateX(0deg) rotateY(0deg);
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            margin: 12px 0;
+            transition: .3s;
+            transform-style: preserve-3d;
+            position: relative;
+            transform: perspective(1200px) rotateX(0deg) rotateX(0deg);
+        }
+
+        .box div {
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            border: 10px solid #fff;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .box:nth-child(1n) div {
+            background: url(images/1.png) no-repeat center #f0f0f0;
+        }
+        .box:nth-child(2n) div {
+            background: url(images/2.png) no-repeat center #f0f0f0;
+        }
+        .box:nth-child(3n) div {
+            background: url(images/3.png) no-repeat center #f0f0f0;
+        }
+        .box div:nth-of-type(1) {
+            transform: translateZ(75px);
+        }
+        .box div:nth-of-type(2) {
+            transform: translateZ(-75px);
+        }
+        .box div:nth-of-type(3) {
+            transform: translateY(75px) rotateX(-90deg);
+        }
+        .box div:nth-of-type(4) {
+            transform: translateY(-75px) rotateX(90deg);
+        }
+        .box div:nth-of-type(5) {
+            transform: translateX(75px) rotateY(90deg);
+        }
+        .box div:nth-of-type(6) {
+            transform: translateX(-75px) rotateY(90deg);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="content" id="content">
+    <div class="box">
+        <div> </div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<script>
+    let content = document.getElementById('content');
+    let box = document.querySelectorAll('.box');
+    let rotates = ['rotateX(180deg)','rotateX(-180deg)','rotateY(180deg)','rotateY(-180deg)'];
+    let colors = ['#F7E8ED', '#F2D9E6', '#ECC6DE', '#E0ECF5', '#DDF4DE', '#F0F1D5', '#EEDECD', '#B8E6B3', '#ABE3D8', '#E0E1F5', '#F7E8ED', '#F2D9E6', '#E0ECF5', '#DDF4DE', '#F0F1D5', '#EEDECD', '#B8E6B3', '#ABE3D8', '#DFD1F0'];
+    for(var i=0; i<box.length;i++){
+        box[i].onmouseenter = function (evt) {
+            let css = rotates[Math.round(Math.random() * (rotates.length -1))];
+            this.style.transform = 'perspective(1200px) translateZ(150px)' + css;
+            document.body.style.background = colors[Math.round(Math.random() * (colors.length -1))];
+        }
+        box[i].onmouseleave = function (evt) {
+            this.style.transform = '';
+            document.body.style.background = 'rgb(238, 222, 205)';
+        }
+    }
+    document.onmousemove=function (evt) {
+        let x = (0.5 - evt.clientY/window.innerHeight)*15;
+        let y = (evt.clientX/window.innerWidth - 0.5)*15;
+        content.style.transform = 'perspective(1200px) rotateX('+x+'deg)' + 'rotateY('+y+'deg)';
+
+    }
+
+</script>
+</body>
+</html>
