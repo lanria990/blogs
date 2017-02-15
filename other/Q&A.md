@@ -7,6 +7,7 @@ A: 需要高度的时候清除,方法：` clear:both ; overflow:hidden; display:
 2）如何保持浮层水平垂直居中
 
 A:浮层垂直居中
+```css
   	transform:translate(-50%,-50%)
   	flexbox[parent]
   		dispay:-webkit-flex
@@ -16,10 +17,12 @@ A:浮层垂直居中
   		display:table-cell
   		vertical-align:middle
   		text-align: center;
+```
 
 3）position 和 display 的取值和各自的意思和用法
 
 A:
+```css
     static: 默认布局,
     relative：相对布局，没有脱离文档流,还占有位置
     absolute：绝对布局，脱离文档流,针对最近的relative布局
@@ -33,6 +36,7 @@ A:
     grid:网格布局,网格允许我们根据区域来排列页面上的元素，
     flex:弹性布局，根据网页的大小内容变化,
     inline-flex:行内弹性布局
+```
 
 
 4）样式的层级关系，选择器优先级，样式冲突，以及抽离样式模块怎么写，说出思路，有无实践经验
@@ -103,13 +107,86 @@ A: array : sort splice split reserve ,reduce,forEach,every,some,map,contact,filt
 
 5）会不会用git，说上来几个命令，说一下git和svn的区别，有没有用git解决过冲突
 
+add,push,pull,status,fetch,merge, branch,checkout XXX
+
+
+
 5. 计算机基础
 
 1）说一下网络五层模型（HTTP协议从应用层到底层都基于哪些协议），HTTP 协议头字段说上来几个，缓存字段是怎么定义的，http和https的区别，在具体使用的时候有什么不一样。是否尽可能详细的掌握HTTP协议。
 
+- 物理层：
+- 数据链路层：
+- 网络层：IP、
+- 传输层：TCP、
+- 应用层：HTTP、FTP、TELNET等
+
+socket: TCP/IP 协议的封装和应用，API接口，create，listen，connect,accept,send,read,write
+[TCP/IP、Http、Socket的区别](http://lib.csdn.net/article/computernetworks/20534)
+
+HTTP 协议head
+
+accept:
+content-Type:
+max-range
+refer
+date
+server:
+expires
+Cache-Control:
+Last-Modified:
+ETag:
+
+缓存：
+Cache-Control：no-cache[http 1.0 禁止缓存]  以时间间隔标识失效时间,解决了Expires服务器和客户端相对时间的问题
+
+```html
+Cache-Control: public, max-age=86400
+```
+Expires:(格林时间 new Date) 缓存时间是相对服务器上的时间
+
+```html
+Expires: Fri, 11 Jun 2021 11:33:01 GMT
+```
+
+优先级：Pragma > Cache-Control > Expires
+Last-Modified: time
+If-Modified-Since: Last-Modified-value 一致 304，
+If-Unmodified-Since: Last-Modified-value 不一致412
+
+ETag：实体首部字段，解决Last-Modified存在时间修改内容未修改导致的不准确问题，ETag是一致 304
+If-None-Match: ETag-value
+If-Match:ETag-value 告诉服务器如果没有匹配到ETag，或者收到了“*”值而当前并没有该资源实体，则应当返回412
+
+
+[HTTP缓存控制小结](http://imweb.io/topic/5795dcb6fb312541492eda8c)
+
+https是HTTP协议运行在TCP之上。所有传输的内容都是明文，客户端和服务器端都无法验证对方的身份。https是HTTP运行在SSL/TLS之上，SSL/TLS运行在TCP之上。所有传输的内容都经过加密，加密采用对称加密，但对称加密的密钥用服务器方的证书进行了非对称加密。此外客户端可以验证服务器端的身份，如果配置了客户端验证，服务器方也可以验证客户端的身份。
+
+[http://blog.nsfocus.net/analysis-https-ssl-encryption/](http://blog.nsfocus.net/analysis-https-ssl-encryption/)
 2）cookies 是干嘛的，服务器和浏览器之间的 cookies 是怎么传的，httponly 的 cookies 和可读写的 cookie 有什么区别，有无长度限制
 
+cookies: 指某些网站为了辨别用户身份而储存在用户本地终端（Client Side）上的数据，因为HTTP协议是无状态的，对于一个浏览器发出的多次请求，WEB服务器无法区分 是不是来源于同一个浏览器。所以，需要额外的数据用于维护会话。 Cookie 正是这样的一段随HTTP请求一起被传递的额外数据
+
+服务器和浏览器之间的 cookies : 明文传输，
+
+httponly 的 cookies 和可读写的 cookie 有什么区别：
+httponly 的 cookies：JS无法获取，增大了安全性
+IE 同时更近一步并且不允许通过 XMLHttpRequest 的 getAllResponseHeaders() 或 getResponseHeader() 方法访问 cookie，然而其它浏览器则允许此行为
+Set-Cookie: name=Nicholas; HttpOnly
+Set-Cookie: value[; expires=date][; domain=domain][; path=path][; secure]
+可读写的 cookie ：JS获取document.cookie
+过期时间：expires，domain，path
+[HTTP cookies 详解](https://www.kancloud.cn/kancloud/http-cookies-explained/48323)
+
+
 3）从敲入 URL 到渲染完成的整个过程，包括 DOM 构建的过程，说的约详细越好。
+
+0.IP解析 DNS查找(浏览器缓存>系统缓存>路由缓存...>万网查询)
+1.TCP链接（三次握手）
+1.浏览器向web服务器发送HTTP请求
+2.服务器响应
+()[https://gold.xitu.io/entry/57f10284da2f60004f5f2e5e]
 
 4）是否了解Web注入攻击，说下原理，最常见的两种攻击（XSS 和 CSRF）了解到什么程度。
 
