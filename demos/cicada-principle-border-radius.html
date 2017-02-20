@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>“蝉原则”的多背景随机圆角</title>
+    <style>
+        .stripes{
+            background-color:#026873 ;
+            background-image: linear-gradient(90deg,rgba(255,255,255,.07) 50%,transparent  50%),
+            linear-gradient(90deg,rgba(255,255,255,.17) 50%,transparent  50%),
+            linear-gradient(90deg,transparent 50%,rgba(255,255,255,.17)  50%),
+            linear-gradient(90deg,transparent 50%,rgba(255,255,255,.19)  50%);
+            background-size: 13px,29px,37px,53px;
+        }
+        .circle{
+            width:100px;
+            height:100px;
+            border-radius: 100%;
+        }
+         li{
+            margin: 10px;
+            display: inline-block;
+            width: 268px;
+            height: 268px;
+            border:4px solid #00c7e9;
+            -webkit-transition: all .3s;
+            transition: all .3s;
+            overflow: hidden;
+            border-radius: 87% 91% 98% 100%;
+        }
+        li:nth-child(2n+1){
+            width: 168px;
+            height: 168px;
+        }
+        li:nth-child(3n+2){
+            width: 72px;
+            height: 72px;
+        }
+        img{
+             width: 168px;
+             height: 168px;
+            background-color: rgb(238, 222, 205);
+        }
+         li:hover{
+             border-radius: 95% 70% 100% 80%;
+             transform: rotate(-2deg);
+         }
+        li:nth-child(2n+1){
+            border-radius: 59% 52% 56% 59%;
+            transform: rotate(-6deg);
+        }
+        li:nth-child(2n+1):hover{
+            border-radius: 51% 67% 56% 64%;
+            transform: rotate(-4deg);
+        }
+        li:nth-child(3n+2){
+            border-radius: 84% 94% 83% 72%;
+            transform: rotate(5deg);
+        }
+        li:nth-child(3n+2):hover{
+            border-radius:  69% 64% 53% 70%;
+            transform: rotate(0deg);
+        }
+        li:nth-child(5n+3){
+            border-radius: 84% 94% 83% 72%;
+            transform: rotate(5deg);
+        }
+        li:nth-child(5n+3):hover{
+            border-radius:  69% 64% 53% 70%;
+            transform: rotate(0deg);
+        }
+        li:nth-child(7n+5){
+            border-radius: 93% 90% 85% 78%;
+            transform: rotate(-2deg);
+        }
+        li:nth-child(7n+5):hover{
+            border-radius: 53% 70% 85% 68%;
+            transform: rotate(-2deg);
+        }
+        li:nth-child(11n+7){
+            border-radius: 68% 68% 83% 53%;
+            transform: rotate(-2deg);
+        }
+        li:nth-child(11n+7):hover{
+            border-radius: 58% 98% 78% 83%;
+            transform: rotate(3deg);
+        }
+    </style>
+</head>
+<body>
+<div class="stripes circle"></div>
+
+<ul >
+    <li><img src="./images/1.png" alt=""></li>
+    <li><img src="./images/2.png" alt=""></li>
+    <li><img src="./images/3.png" alt=""></li>
+    <li><img src="./images/1.png" alt=""></li>
+    <li><img src="./images/2.png" alt=""></li>
+    <li><img src="./images/3.png" alt=""></li>
+    <li><img src="./images/1.png" alt=""></li>
+    <li><img src="./images/2.png" alt=""></li>
+    <li><img src="./images/3.png" alt=""></li>
+    <li><img src="./images/1.png" alt=""></li>
+    <li><img src="./images/2.png" alt=""></li>
+    <li><img src="./images/3.png" alt=""></li>
+    <li><img src="./images/1.png" alt=""></li>
+    <li><img src="./images/2.png" alt=""></li>
+    <li><img src="./images/3.png" alt=""></li>
+</ul>
+</body>
+</html>
