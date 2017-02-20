@@ -13,7 +13,7 @@ category: CSS3
 
 质数定义为在大于1的自然数中，除了1和它本身以外不再有其他因数的数称为质数
 
-![image]('./prime.jpg')
+![image](./prime.jpg)
 
 ```javascript
 function isPrime(n) {
