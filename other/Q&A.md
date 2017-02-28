@@ -187,12 +187,41 @@ Set-Cookie: value[; expires=date][; domain=domain][; path=path][; secure]
 1.浏览器向web服务器发送HTTP请求
 2.服务器响应
 ()[https://gold.xitu.io/entry/57f10284da2f60004f5f2e5e]
+3. 浏览器解析Html结构，解析html以构建dom树->构建render树->布局render树->绘制render树
+4. 加载
 
+[](http://blog.jobbole.com/12749/)
 4）是否了解Web注入攻击，说下原理，最常见的两种攻击（XSS 和 CSRF）了解到什么程度。
+XSS:脚本攻击[反射型，永久型]
+1.<,>,script,iframe,javascript,&,",',\...
+2.unicode码 避开特殊字符过滤
+3.img
+4.css ,HTML [attribute,html text,]
+
+CSRF:session 获取 ,伪装被信任用户
+token验证
+Referer字段
 
 5）是否了解公钥加密和私钥加密。如何确保表单提交里的密码字段不被泄露。验证码是干嘛的，是为了解决什么安全问题。
 
 6）编码常识：文件编码、URL 编码、Unicode编码 什么含义。一个gbk编码的页面如何正确引用一个utf8的的资源
+
+文件编码：Windows中默认的文件格式是GBK(gb2312) ??
+
+URL 编码: ASCII 格式,非ASCII 码需要转换[URL编码](http://www.ruanyifeng.com/blog/2010/02/url_encoding.html)
+
+Unicode:二进制编码，所有符号的编码
+
+[Unicode](http://blog.jobbole.com/107762/?utm_source=blog.jobbole.com&utm_medium=relatedPosts) 
+[ASCII，Unicode和UTF-8](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html)
+UTF-8是Unicode的实现方式之一
+引用一个utf8的的资源	
+```javascript
+header('Content-Type: text/html; charset=GBK');
+<script src="gbk.js" charset="gbk" ></script>
+```
+
+
 
 6. 考察学习能力和方法
 

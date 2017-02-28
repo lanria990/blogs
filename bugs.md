@@ -18,6 +18,19 @@
 
 ```html
 
+【日期】：2017/02/28
+【问题】：自使用布局中，如果设置container.width>screen.width,父级背景层100%，出现空白块
+【原因】：
+【怎么发现的】：
+【修复】：
+【在哪些文件修改了】：
+【我导致的】：是
+【解决Bug的时间】：2017/02/28
+【教训】：container.width <= screen.width
+```
+
+```html
+
 【日期】：2016/08/30
 【问题】：在div样式flex:1中宽度无法自适应，元素会溢出
 【原因】：css3 flex parent div设置了position：relative
