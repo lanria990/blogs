@@ -189,7 +189,7 @@ Set-Cookie: value[; expires=date][; domain=domain][; path=path][; secure]
 ()[https://gold.xitu.io/entry/57f10284da2f60004f5f2e5e]
 3. 浏览器解析Html结构，解析html以构建dom树->构建render树->布局render树->绘制render树
 4. 加载
-
+[渲染树构建、布局及绘制](https://developers.google.cn/web/fundamentals/performance/critical-rendering-path/render-tree-construction?hl=zh-cn)
 [](http://blog.jobbole.com/12749/)
 4）是否了解Web注入攻击，说下原理，最常见的两种攻击（XSS 和 CSRF）了解到什么程度。
 XSS:脚本攻击[反射型，永久型]
