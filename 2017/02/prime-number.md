@@ -4,7 +4,7 @@ title: “蝉原则”与CSS3随机多背景随机圆角 阅读笔记
 category: CSS3
 ---
 
-- [“蝉原则”与CSS3随机多背景随机圆角](http://www.zhangxinxu.com/wordpress/2017/02/cicada-principle-css3-randomisation-multiple-backgrounds-border-radius/)
+- [原文-“蝉原则”与CSS3随机多背景随机圆角](http://www.zhangxinxu.com/wordpress/2017/02/cicada-principle-css3-randomisation-multiple-backgrounds-border-radius/)
 
 “蝉原则”：以质数作为循环周期来增加“自然随机性”的策略
 使用场景：最小成本实现更自然的随机效果
@@ -13,7 +13,7 @@ category: CSS3
 
 质数定义为在大于1的自然数中，除了1和它本身以外不再有其他因数的数称为质数
 
-[!image]('./prime.jpg')
+![image](./prime.jpg)
 
 ```javascript
 function isPrime(n) {
