@@ -56,8 +56,9 @@ let url = new URL("https://example.org/💩?x=1");
   }
 ```
 
-####  懒加载 [IntersectionObserver](./IntersectionObserver.md)
+##### 懒加载 [IntersectionObserver](./IntersectionObserver.md)
 
+##### 其他
 
 - 在用户关闭页面的时候打点
 
@@ -101,12 +102,12 @@ position: sticky;
 display: flow-root;
 }
 ```
- CSS3 中，对块格式化上下文这个概念做了改动，将 "Block formatting context" 叫做 "flow root"
+CSS3 中，对块格式化上下文这个概念做了改动，将 "Block formatting context" 叫做 "flow root"
+Chrome 58+ 兼容
 
-[常规流](http://w3help.org/zh-cn/kb/010/)
+- [常规流](http://w3help.org/zh-cn/kb/010/)
+- [兼容性查询](http://caniuse.com/#search=flow-root)
 
-[兼容性查询](http://caniuse.com/#search=flow-root)
-?Chrome 58+ 不兼容
 
 - 字符串的前后位置添加字符串到指定位数
 
