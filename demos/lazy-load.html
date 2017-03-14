@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lazy-load</title>
+    <style>
+        ul{display: block;}
+        ul:after{
+            content: '';
+            display: table;
+            clear: both;
+        }
+        li{
+            list-style: none;
+            float: left;
+            margin: 1em;
+        }
+        img{
+            width: 400px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li data-src="https://ss1.bdstatic.com/kvoZeXSm1A5BphGlnYG/skin/168.jpg"></li>
+    <li data-src="https://ss1.bdstatic.com/kvoZeXSm1A5BphGlnYG/skin/168.jpg"></li>
+    <li data-src="https://ss1.bdstatic.com/kvoZeXSm1A5BphGlnYG/skin/168.jpg"></li>
+    <li data-src="https://ss1.bdstatic.com/kvoZeXSm1A5BphGlnYG/skin/168.jpg"></li>
+    <li data-src="https://ss1.bdstatic.com/kvoZeXSm1A5BphGlnYG/skin/168.jpg"></li>
+    <li data-src="https://ss1.bdstatic.com/kvoZeXSm1A5BphGlnYG/skin/168.jpg"></li>
+
+    <li data-src="./images/1.jpg"></li>
+    <li data-src="./images/1.jpg"></li>
+    <li data-src="./images/1.jpg"></li>
+    <li data-src="./images/1.jpg"></li>
+    <li data-src="./images/1.jpg"></li>
+    <li data-src="./images/1.jpg"></li>
+</ul>
+<!--<div style="height: 100vh; background: #ddd;width: 100%;"></div>-->
+<script>
+    const io = new IntersectionObserver(entries=>{
+        console.log('entries',entries);
+        entries.forEach(entry=>{
+            const visible = 1;
+            let src = entry.target.getAttribute('data-src');
+            if (visible && src){
+                let image = document.createElement('img');
+                image.setAttribute('src',src);
+                entry.target.appendChild(image);
+                entry.target.removeAttribute('data-src');
+            }
+            io.unobserve(entry.target);//停止观察
+        })
+    }, {
+        threshold: .4
+    })
+    Array.from(document.querySelectorAll('li')).forEach(li=>io.observe(li));
+
+</script>
+</body>
+</html>

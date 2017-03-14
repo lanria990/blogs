@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>infinite scroll</title>
+    <style>
+        ul {
+            display: block;
+        }
+
+        ul:after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        li {
+            list-style: none;
+            float: left;
+            margin: 1em;
+        }
+
+        img {
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li class="loading">loading...</li>
+</ul>
+
+<script>
+
+    let  _li =document.querySelector('li.loading')
+    const io = new IntersectionObserver(loadItems,  {threshold: .5});
+    io.observe(_li);
+    function loadItems(entries) {
+        console.log('entries', entries);
+        let src = 'https://www.bing.com/az/hprichbg/rb/BlanchardSprings_ZH-CN10814394195_1920x1080.jpg';
+        const itemTmpl = `<li class="item" ><img src="${src}"></li>`;
+        _li.insertAdjacentHTML('beforebegin',itemTmpl.repeat(15));
+    }
+</script>
+</body>
+</html>

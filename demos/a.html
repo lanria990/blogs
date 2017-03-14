@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>a element new attribute</title>
+</head>
+<body>
+<h5>download</h5>
+<div class="txtContent">My epic novel that I don't want to lose.</div>
+
+<h5>ping Chrome</h5>
+<a href="https://www.so.com"
+   ping="https://s.360.cn/click">360搜索</a>
+
+<h5>referrerpolicy：refer 定义</h5>
+<a href="https://www.so.com"  referrerpolicy="no-referrer" >360搜索</a>
+
+<h5>rel</h5>
+<a rel="nofollow" href="http://www.functravel.com/">Cheap Flights</a>
+<script>
+    var downloadFile = function() {
+        window.URL = window.webkitURL || window.URL;
+        var bb = new Blob([document.querySelector('.txtContent').textContent], {type: 'text/plain'});
+
+        var a = document.createElement('a');
+        a.download = 'MyFile.txt';
+        a.href = window.URL.createObjectURL(bb);
+        a.textContent = 'Download';
+
+        a.dataset.downloadurl = ['text/plain', a.download, a.href].join(':');
+        document.querySelector('.txtContent').after(a);
+    };
+    downloadFile();
+</script>
+</body>
+</html>
