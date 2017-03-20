@@ -131,3 +131,5 @@ navigator.share({
   }).then(()  => console.log('Successful share'))
   .catch(()  => console.log('Error sharing:', error));
 ```
+扩展
+- [Web 分享 API 赋予浏览器原生分享能力](https://github.com/xitu/gold-miner/blob/master/TODO/why-do-we-need-a-new-api.md)

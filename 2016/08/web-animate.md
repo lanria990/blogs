@@ -14,8 +14,8 @@
 
 
 
-#### requestAnimationFrame
+#### [requestAnimationFrame](https://www.w3.org/TR/animation-timing/%EF%BC%8Chttps:/developer.mozilla.org/en/docs/Web/API/window.requestAnimationFrame)
 
-
+-[浅析 requestAnimationFrame](http://taobaofed.org/blog/2017/03/02/thinking-in-request-animation-frame/)
 
 ####  will-change
