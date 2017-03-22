@@ -11,6 +11,7 @@ category: CSS3
 
 - 包裹与破坏:收缩，坚挺，隔绝，父元素高度塌陷（absolute,）
 - 文字环绕效果
+
 -  块状化元素
 
 #### BFC [块极化上下文](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)
