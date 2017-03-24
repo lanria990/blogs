@@ -1,5 +1,6 @@
 ## 未学习的文章 mark
 
+-[奇舞特训营 JavaScript （第 9 讲） 常用设计模式和组件开发实战](https://ppt.baomitu.com/d/f4075f50#/)
 
 ####  前端性能
 
