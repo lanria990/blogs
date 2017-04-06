@@ -2,6 +2,7 @@
 
 #### [认识QA测试](http://icodeit.org/2016/09/what-should-qa-do-in-a-agile-team/)
 
+- [创建、管理和运行自动化测试Web应用程序] (http://endtest.io/tests)
 #### mocha 单元测试
 
 - mochawesome  HTML格式的报告 mocha --reporter mochawesome

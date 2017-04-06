@@ -73,8 +73,15 @@ CSP的基本假设之一就是在策略白名单中的域名只会提供安全�
 3、作为安全手段的路径限制
 4、白名单数量越大，越难保证JSONP和AngularJS造成的安全问题
 
+#### Xss
 
 
+- xss盲打平台,[代码下载](https://code.google.com/archive/p/xssf/downloads)
+- [模糊测试](https://www.owasp.org/index.php/Fuzzing)
+
+相关文章
+
+- [跨站的艺术-XSS Fuzzing 的技巧](https://www.qcloud.com/community/article/172258001490259493)
 
 ##### 关于在后期维护过程中 css 和 Js 耦合问题
 
