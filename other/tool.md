@@ -33,7 +33,7 @@
 - Vue.js devtools
 
 #### webstorm
-
+> `Setting -> Editor -> File types -> Ignore files and folders` 添加上 node_modules,全部项目都会忽略。node_modules导致的编辑器就会卡死,还有一种版本就是Excluded
 - vue-idea
 ...
 
