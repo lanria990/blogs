@@ -35,6 +35,7 @@
 #### webstorm
 > `Setting -> Editor -> File types -> Ignore files and folders` 添加上 node_modules,全部项目都会忽略。node_modules导致的编辑器就会卡死,还有一种版本就是Excluded
 - vue-idea
+- eslint 格式化js文件 https://www.jetbrains.com/help/webstorm/2017.1/eslint.html
 ...
 
 #### Sublime Text
@@ -44,7 +45,9 @@
 - AngularJS-sublime-package-master
 - vue-syntax-highlight-master
 
+####
 
+- [css-modules `[name]__[local]___[hash:base64:5]`](https://github.com/css-modules/webpack-demo)
 
 参考：
 [一个全栈工程师的工具箱](http://toolbox.phodal.com/#%E7%AC%94%E8%AE%B0%E6%9C%AC%E6%94%AF%E6%9E%B6%E6%8A%98%E5%8F%A0)

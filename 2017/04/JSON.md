@@ -1,4 +1,4 @@
-##JSON
+## JSON
 
 [JSON](http://www.json.org/json-zh.html)(JavaScript Object Notation) 是一种轻量级的数据交换格式。 易于人阅读和编写
 
