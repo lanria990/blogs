@@ -42,3 +42,8 @@ url 到构建完DOM树
 构建RenderObject树
 
 1. CSS文件 > CSS解释器 > 规则 > DOM树附加样式【RenderObject同时创建RenderLayer树】>虚拟的绘图上下文【2D和3D图形库】
+
+#### 参考资料
+
+- [HTML](https://html.spec.whatwg.org/)
+- [图解HTTP](http://read.404mzk.com/tu_jie_http.html)
