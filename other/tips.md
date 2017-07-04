@@ -99,3 +99,24 @@ CSP的基本假设之一就是在策略白名单中的域名只会提供安全�
 [Swagger](http://swagger.io/) api扫描生成
 [契约测试](https://martinfowler.com/bliki/IntegrationContractTest.html)
 
+
+#### this.length
+
+this.length functionName.length 均为函数的形参个数
+```javascript
+function test (){}
+test.length  // 输出0
+test.hasOwnProperty('length')  // 输出true
+Object.getOwnPropertyDescriptor('test', 'length')
+// 输出：
+// configurable: false,
+// enumerable: false,
+// value: 4,
+// writable: false
+```
+
+#### flex
+
+-  flex 条目垂直对齐,字体不同 align-items: baseline
+- 相邻的 flex 条目的边缘不会塌陷
+- vertical-align 不会对 flex 条目起作用

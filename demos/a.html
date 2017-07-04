@@ -23,20 +23,35 @@
 
 <h5>rel</h5>
 <a rel="nofollow" href="http://www.functravel.com/">Cheap Flights</a>
+
+<div>
+    <li><span>1111111</span></li>
+    <li><span>23333</span></li>
+    <li><span>444444444</span></li>
+    <li><span>55555555555</span></li>
+    <li><span>66666666666</span></li>
+</div>
 <script>
-    var downloadFile = function() {
-        window.URL = window.webkitURL || window.URL;
-        var bb = new Blob([document.querySelector('.txtContent').textContent], {type: 'text/plain'});
+//    var downloadFile = function() {
+//        window.URL = window.webkitURL || window.URL;
+//        var bb = new Blob([document.querySelector('.txtContent').textContent], {type: 'text/plain'});
+//
+//        var a = document.createElement('a');
+//        a.download = 'MyFile.txt';
+//        a.href = window.URL.createObjectURL(bb);
+//        a.textContent = 'Download';
+//
+//        a.dataset.downloadurl = ['text/plain', a.download, a.href].join(':');
+//        document.querySelector('.txtContent').after(a);
+//    };
+//    downloadFile();
 
-        var a = document.createElement('a');
-        a.download = 'MyFile.txt';
-        a.href = window.URL.createObjectURL(bb);
-        a.textContent = 'Download';
-
-        a.dataset.downloadurl = ['text/plain', a.download, a.href].join(':');
-        document.querySelector('.txtContent').after(a);
-    };
-    downloadFile();
+    var _lis = document.querySelectorAll('li');
+    for (var i =0 ; i<_lis.length;i++){
+        _lis[i].onclick=function () {
+           alert(this.innerText);
+        }
+    }
 </script>
 </body>
 </html>
